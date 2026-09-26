@@ -1,0 +1,6 @@
+/* Import Modular Stylesheets */
+@import './styles/variables.css';
+@import './styles/background.css';
+@import './styles/scan.css';
+@import './styles/ceremony.css';
+@import './styles/responsive.css';

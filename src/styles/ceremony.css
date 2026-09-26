@@ -1,0 +1,273 @@
+/* Ceremony & Visual Effects Styles */
+
+/* Energy Core */
+.energy-core-container {
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: clamp(100px, 12vw, 180px);
+  height: clamp(100px, 12vw, 180px);
+  z-index: var(--z-energy-layer);
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+.energy-core-container.active {
+  opacity: 1;
+}
+
+.core-glow {
+  position: absolute;
+  inset: -40px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(140, 236, 255, 0.7) 0%, rgba(61, 140, 255, 0.4) 40%, transparent 70%);
+  animation: coreGlowPulse 2s ease-in-out infinite;
+}
+
+.core-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 2px solid rgba(85, 217, 255, 0.8);
+}
+
+.core-ring-1 {
+  width: 100%;
+  height: 100%;
+  border-style: solid;
+  box-shadow: 0 0 20px var(--cyan-glow);
+  animation: ringSpin 10s linear infinite;
+}
+
+.core-ring-2 {
+  width: 75%;
+  height: 75%;
+  border-style: dashed;
+  border-color: var(--cyan-300);
+  animation: ringSpinRev 7s linear infinite;
+}
+
+.core-ring-3 {
+  width: 50%;
+  height: 50%;
+  background: radial-gradient(circle, #ffffff 0%, #8cecff 50%, #3d8cff 100%);
+  box-shadow: 0 0 35px #ffffff, 0 0 60px var(--cyan-400);
+  animation: corePulse 1.2s ease-in-out infinite;
+}
+
+@keyframes ringSpinRev {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
+@keyframes coreGlowPulse {
+  0%, 100% { transform: scale(0.9); opacity: 0.6; }
+  50% { transform: scale(1.3); opacity: 1; }
+}
+
+@keyframes corePulse {
+  0%, 100% { transform: scale(0.85); opacity: 0.9; }
+  50% { transform: scale(1.15); opacity: 1; }
+}
+
+/* Expanding Energy Wave Rings */
+.energy-expanding-ring {
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  border: 2px solid rgba(140, 236, 255, 0.85);
+  box-shadow: 0 0 20px var(--cyan-400);
+  pointer-events: none;
+  z-index: var(--z-energy-layer);
+  animation: energyExpand 2.8s cubic-bezier(0.1, 0.8, 0.3, 1) infinite;
+}
+
+.energy-expanding-ring:nth-child(2) {
+  animation-delay: 0.9s;
+}
+
+.energy-expanding-ring:nth-child(3) {
+  animation-delay: 1.8s;
+}
+
+@keyframes energyExpand {
+  0% {
+    width: 60px;
+    height: 60px;
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(0.5);
+  }
+  100% {
+    width: 90vw;
+    height: 90vw;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(2);
+  }
+}
+
+/* Energy Beams Connecting Points to Core */
+.energy-beams-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: var(--z-energy-layer);
+  pointer-events: none;
+}
+
+.energy-beam-path {
+  fill: none;
+  stroke: url(#beamGrad);
+  stroke-width: 4;
+  stroke-linecap: round;
+  filter: drop-shadow(0 0 12px var(--cyan-400)) drop-shadow(0 0 25px var(--blue-500));
+  stroke-dasharray: 20 10;
+  animation: beamFlow 1s linear infinite;
+}
+
+@keyframes beamFlow {
+  from { stroke-dashoffset: 60; }
+  to { stroke-dashoffset: 0; }
+}
+
+/* Flash Burst on Reveal */
+.ceremony-flash {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.9) 0%, rgba(140, 236, 255, 0.5) 40%, transparent 80%);
+  z-index: var(--z-ceremony-overlay);
+  pointer-events: none;
+  animation: flashBurst 1.2s ease-out forwards;
+}
+
+@keyframes flashBurst {
+  0% { opacity: 0; transform: scale(0.6); }
+  25% { opacity: 1; transform: scale(1.1); }
+  100% { opacity: 0; transform: scale(1.6); }
+}
+
+/* Title Reveal during Ceremony */
+.ceremony-reveal-title {
+  position: absolute;
+  top: 36%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: var(--z-ceremony-overlay);
+  pointer-events: none;
+  animation: titleRevealAnim 1.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes titleRevealAnim {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.75);
+    filter: blur(16px);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.04);
+    filter: blur(0px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+    filter: blur(0px);
+  }
+}
+
+.ceremony-main-title {
+  font-family: var(--font-serif);
+  font-size: clamp(48px, 7vw, 96px);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #fff;
+  text-shadow:
+    0 0 15px rgba(255, 255, 255, 0.9),
+    0 0 35px var(--cyan-300),
+    0 0 65px var(--blue-600);
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.ceremony-sub-title {
+  font-family: var(--font-sans);
+  font-size: clamp(20px, 2.8vw, 38px);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--white-soft);
+  text-shadow:
+    0 0 12px var(--cyan-400),
+    0 0 30px var(--blue-500);
+  margin-top: 14px;
+}
+
+.ceremony-badge {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 8px 24px;
+  background: rgba(13, 38, 89, 0.7);
+  border: 1.5px solid var(--cyan-400);
+  border-radius: 30px;
+  box-shadow: 0 0 20px var(--cyan-glow);
+  font-family: var(--font-sans);
+  font-size: clamp(12px, 1.4vw, 16px);
+  letter-spacing: 0.2em;
+  color: var(--cyan-300);
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+/* Cultural Elements Glow Animation during Ceremony */
+.ceremony-active .wayang-left,
+.ceremony-active .wayang-right {
+  filter: drop-shadow(0 0 25px rgba(85, 217, 255, 0.95)) drop-shadow(0 0 45px rgba(61, 140, 255, 0.7));
+  opacity: 1;
+  transition: all 1.2s ease;
+}
+
+.ceremony-active .mega-mendung {
+  filter: drop-shadow(0 0 20px rgba(140, 236, 255, 0.9));
+  opacity: 0.95;
+  transition: all 1.2s ease;
+}
+
+/* 10-Second Fade to Dark Overlay */
+.final-dark-overlay {
+  position: fixed;
+  inset: 0;
+  background: #000000;
+  pointer-events: none;
+  z-index: var(--z-dark-overlay);
+  opacity: 0;
+  transition: opacity 10s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.final-dark-overlay.active {
+  opacity: 1;
+  pointer-events: auto; /* absorbs click in dark state */
+}
+
+/* Reset / operator hint in dark mode */
+.dark-mode-hint {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.25);
+  font-family: var(--font-sans);
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.dark-mode-hint:hover {
+  color: rgba(255, 255, 255, 0.6);
+}

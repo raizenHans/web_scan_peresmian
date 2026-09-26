@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <defs>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fbbf24;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#f59e0b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#d97706;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1e40af;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Outer ring -->
+  <circle cx="200" cy="200" r="190" fill="none" stroke="url(#goldGrad)" stroke-width="8" filter="url(#glow)"/>
+
+  <!-- Inner ring -->
+  <circle cx="200" cy="200" r="170" fill="none" stroke="url(#blueGrad)" stroke-width="4"/>
+
+  <!-- Decorative elements - rays -->
+  <g stroke="url(#goldGrad)" stroke-width="2" opacity="0.6">
+    <line x1="200" y1="200" x2="200" y2="40" />
+    <line x1="200" y1="200" x2="360" y2="200" />
+    <line x1="200" y1="200" x2="200" y2="360" />
+    <line x1="200" y1="200" x2="40" y2="200" />
+    <line x1="200" y1="200" x2="340" y2="60" />
+    <line x1="200" y1="200" x2="340" y2="340" />
+    <line x1="200" y1="200" x2="60" y2="340" />
+    <line x1="200" y1="200" x2="60" y2="60" />
+  </g>
+
+  <!-- Center circle -->
+  <circle cx="200" cy="200" r="110" fill="#0f172a" stroke="url(#goldGrad)" stroke-width="3"/>
+
+  <!-- FKTP Text -->
+  <text x="200" y="185" font-family="Georgia, serif" font-size="68" font-weight="bold" fill="url(#goldGrad)" text-anchor="middle" letter-spacing="8px" filter="url(#glow)">
+    FKTP
+  </text>
+
+  <!-- Subtitle -->
+  <text x="200" y="235" font-family="Georgia, serif" font-size="16" fill="#94a3b8" text-anchor="middle" letter-spacing="4px">
+    FORUM KOMUNIKASI
+  </text>
+  <text x="200" y="258" font-family="Georgia, serif" font-size="16" fill="#94a3b8" text-anchor="middle" letter-spacing="4px">
+    TANAH PEMUDA
+  </text>
+
+  <!-- Decorative separator -->
+  <g transform="translate(200, 280)">
+    <circle cx="-50" cy="0" r="4" fill="url(#goldGrad)" filter="url(#glow)"/>
+    <line x1="-40" y1="0" x2="40" y2="0" stroke="url(#goldGrad)" stroke-width="2"/>
+    <circle cx="50" cy="0" r="4" fill="url(#goldGrad)" filter="url(#glow)"/>
+  </g>
+
+  <!-- Hand icon at bottom -->
+  <g transform="translate(200, 330)" fill="url(#goldGrad)" opacity="0.8">
+    <ellipse cx="0" cy="5" rx="22" ry="28"/>
+    <ellipse cx="-26" cy="2" rx="10" ry="20" transform="rotate(-30 -26 2)"/>
+    <ellipse cx="-12" cy="-28" rx="7" ry="18"/>
+    <ellipse cx="0" cy="-32" rx="7" ry="20"/>
+    <ellipse cx="12" cy="-28" rx="7" ry="18"/>
+    <ellipse cx="24" cy="-20" rx="7" ry="15" transform="rotate(15 24 -20)"/>
+  </g>
+
+  <!-- Bottom text -->
+  <text x="200" y="380" font-family="Georgia, serif" font-size="14" fill="#64748b" text-anchor="middle" letter-spacing="2px">
+    PERESMIAN RESMI
+  </text>
+</svg>

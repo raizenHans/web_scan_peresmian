@@ -1,0 +1,32 @@
+:root {
+  /* Color Palette strictly according to document */
+  --navy-950: #030b20;
+  --navy-900: #071431;
+  --navy-800: #0b1f49;
+  --blue-700: #164da8;
+  --blue-600: #2676dc;
+  --blue-500: #3d8cff;
+  --cyan-400: #55d9ff;
+  --cyan-300: #8cecff;
+  --white: #ffffff;
+  --white-soft: #eaf5ff;
+  --blue-glow: rgba(69, 157, 255, 0.75);
+  --cyan-glow: rgba(89, 224, 255, 0.85);
+
+  /* Fonts */
+  --font-serif: Georgia, "Times New Roman", Garamond, serif;
+  --font-sans: "Trebuchet MS", "Segoe UI", system-ui, -apple-system, sans-serif;
+
+  /* Z-Index Architecture as specified */
+  --z-bg: 0;
+  --z-circuit: 1;
+  --z-mega-mendung: 2;
+  --z-wayang: 3;
+  --z-scan-layer: 4;
+  --z-content: 5;
+  --z-energy-layer: 6;
+  --z-particle-layer: 7;
+  --z-ceremony-overlay: 8;
+  --z-dark-overlay: 9;
+  --z-operator-ui: 10;
+}

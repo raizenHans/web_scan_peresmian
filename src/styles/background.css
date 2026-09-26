@@ -1,0 +1,89 @@
+/* Background & Circuit Styles */
+.bg-container {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: var(--z-bg);
+  pointer-events: none;
+}
+
+/* Layer 1: Navy Gradient */
+.bg-layer-gradient {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 50% 45%, rgba(47, 108, 210, 0.35), transparent 42%),
+    radial-gradient(circle at 50% 100%, rgba(36, 102, 220, 0.35), transparent 50%),
+    linear-gradient(180deg, #030b20 0%, #081a3d 50%, #123b80 100%);
+}
+
+/* Layer 2: Subtle Tech Hexagon / Grid Pattern */
+.bg-layer-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(85, 217, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(85, 217, 255, 0.04) 1px, transparent 1px);
+  background-size: 50px 50px;
+  mask-image: radial-gradient(circle at 50% 50%, black 40%, transparent 80%);
+  -webkit-mask-image: radial-gradient(circle at 50% 50%, black 40%, transparent 80%);
+}
+
+/* Layer 3: Circuit Lines */
+.circuit-layer {
+  position: absolute;
+  inset: 0;
+  z-index: var(--z-circuit);
+  pointer-events: none;
+}
+
+.circuit-line {
+  position: absolute;
+  background: linear-gradient(90deg, transparent, rgba(88, 163, 255, 0.65), transparent);
+  box-shadow: 0 0 10px rgba(88, 163, 255, 0.55);
+}
+
+.circuit-line.horizontal {
+  height: 2px;
+}
+
+.circuit-line.vertical {
+  width: 2px;
+  background: linear-gradient(180deg, transparent, rgba(88, 163, 255, 0.65), transparent);
+}
+
+.circuit-node {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #dff8ff;
+  box-shadow: 0 0 10px #55d9ff, 0 0 20px #55d9ff;
+  transform: translate(-50%, -50%);
+  animation: nodeBlink 3s ease-in-out infinite;
+}
+
+@keyframes nodeBlink {
+  0%, 100% { opacity: 0.4; transform: translate(-50%, -50%) scale(0.8); }
+  50% { opacity: 1; transform: translate(-50%, -50%) scale(1.2); }
+}
+
+/* Central ambient radial pulse */
+.bg-ambient-pulse {
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70vw;
+  height: 70vw;
+  max-width: 900px;
+  max-height: 900px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(61, 140, 255, 0.12) 0%, rgba(85, 217, 255, 0.05) 45%, transparent 70%);
+  animation: ambientBreath 8s ease-in-out infinite;
+}
+
+@keyframes ambientBreath {
+  0%, 100% { transform: translate(-50%, -50%) scale(0.95); opacity: 0.7; }
+  50% { transform: translate(-50%, -50%) scale(1.05); opacity: 1; }
+}
